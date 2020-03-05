@@ -11,7 +11,6 @@
 
 // [ 应用入口文件 ]
 namespace think;
-
 define('DS', DIRECTORY_SEPARATOR);
 
 //检测是否已安装CRMEB系统

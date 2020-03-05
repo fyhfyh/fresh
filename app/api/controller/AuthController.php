@@ -34,7 +34,6 @@ class AuthController
      */
     public function login(Request $request)
     {
-
         $user = User::where('account', $request->param('account'))->find();
         if($user) {
             if ($user->pwd !== md5($request->param('password')))
