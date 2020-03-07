@@ -68,17 +68,17 @@
                                 <input type="text" name="nickname" lay-verify="nickname" style="width: 100%" autocomplete="off" placeholder="请输入姓名、编号、手机号" class="layui-input">
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">用户类型：</label>
-                            <div class="layui-input-inline">
-                                <select name="user_type" lay-verify="user_type">
-                                    <option value="">全部</option>
-                                    <option value="wechat">微信公众号</option>
-                                    <option value="routine">微信小程序</option>
-                                    <option value="h5">H5</option>
-                                </select>
-                            </div>
-                        </div>
+<!--                        <div class="layui-inline">-->
+<!--                            <label class="layui-form-label">用户类型：</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <select name="user_type" lay-verify="user_type">-->
+<!--                                    <option value="">全部</option>-->
+<!--                                    <option value="wechat">微信公众号</option>-->
+<!--                                    <option value="routine">微信小程序</option>-->
+<!--                                    <option value="h5">H5</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="layui-inline">
                             <label class="layui-form-label">状　　态：</label>
                             <div class="layui-input-inline">
@@ -89,37 +89,37 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">性　　别：</label>
-                            <div class="layui-input-inline">
-                                <select name="sex" lay-verify="sex">
-                                    <option value="">全部</option>
-                                    <option value="1">男</option>
-                                    <option value="2">女</option>
-                                    <option value="0">保密</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">身　　份：</label>
-                            <div class="layui-input-inline">
-                                <select name="is_promoter" lay-verify="is_promoter">
-                                    <option value="">全部</option>
-                                    <option value="1">推广员</option>
-                                    <option value="0">普通用户</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="layui-inline">
-                            <label class="layui-form-label">国　　家：</label>
-                            <div class="layui-input-inline">
-                                <select name="country" lay-verify="country" lay-filter='country'>
-                                    <option value=""  selected="selected">请选择国</option>
-                                    <option value="domestic">中国</option>
-                                    <option value="abroad">外国</option>
-                                </select>
-                            </div>
-                        </div>
+<!--                        <div class="layui-inline">-->
+<!--                            <label class="layui-form-label">性　　别：</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <select name="sex" lay-verify="sex">-->
+<!--                                    <option value="">全部</option>-->
+<!--                                    <option value="1">男</option>-->
+<!--                                    <option value="2">女</option>-->
+<!--                                    <option value="0">保密</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-inline">-->
+<!--                            <label class="layui-form-label">身　　份：</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <select name="is_promoter" lay-verify="is_promoter">-->
+<!--                                    <option value="">全部</option>-->
+<!--                                    <option value="1">推广员</option>-->
+<!--                                    <option value="0">普通用户</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="layui-inline">-->
+<!--                            <label class="layui-form-label">国　　家：</label>-->
+<!--                            <div class="layui-input-inline">-->
+<!--                                <select name="country" lay-verify="country" lay-filter='country'>-->
+<!--                                    <option value=""  selected="selected">请选择国</option>-->
+<!--                                    <option value="domestic">中国</option>-->
+<!--                                    <option value="abroad">外国</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="layui-inline" id="province-div">
                             <label class="layui-form-label">省　　份：</label>
                             <div class="layui-input-inline">
@@ -189,18 +189,19 @@
                     <div class="layui-btn-group conrelTable">
 <!--                        <button class="layui-btn layui-btn-sm layui-btn-danger" type="button" data-type="set_status_f"><i class="fa fa-ban"></i>封禁</button>-->
 <!--                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_status_j"><i class="fa fa-check-circle-o"></i>解封</button>-->
-                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_grant"><i class="fa fa-check-circle-o"></i>发送优惠券</button>
-                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_custom"><i class="fa fa-check-circle-o"></i>发送客服图文消息</button>
+<!--                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_grant"><i class="fa fa-check-circle-o"></i>发送优惠券</button>-->
+<!--                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_custom"><i class="fa fa-check-circle-o"></i>发送客服图文消息</button>-->
 <!--                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_template"><i class="fa fa-check-circle-o"></i>发送模板消息</button>-->
 <!--                        <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="set_info"><i class="fa fa-check-circle-o"></i>发送站内消息</button>-->
                         <button class="layui-btn layui-btn-sm layui-btn-normal" type="button" data-type="refresh"><i class="layui-icon layui-icon-refresh" ></i>刷新</button>
+                        <button class="layui-btn layui-btn-sm" onclick="$eb.createModalFrame(this.innerText,'{:Url('add_user')}',{h:700,w:1100})">添加客户</button>
                     </div>
                     <table class="layui-hide" id="userList" lay-filter="userList"></table>
                     <script type="text/html" id="nickname">
                         {{d.nickname}}
-                        {{# if(d.vip_name){ }}
-                        <p style="color:#dab176">{{d.vip_name}}</p>
-                        {{# } }}
+<!--                        {{# if(d.vip_name){ }}-->
+<!--                        <p style="color:#dab176">{{d.vip_name}}</p>-->
+<!--                        {{# } }}-->
                     </script>
                     <script type="text/html" id="data_time">
                         <p>首次：{{d.add_time}}</p>
@@ -213,24 +214,24 @@
                         <button type="button" class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon layui-icon-edit"></i>编辑</button>
                         <button type="button" class="layui-btn layui-btn-xs" onclick="dropdown(this)">操作 <span class="caret"></span></button>
                         <ul class="layui-nav-child layui-anim layui-anim-upbit">
-                            <li>
-                                <a href="javascript:void(0);" lay-event="money">
-                                    <i class="layui-icon layui-icon-edit"></i> 余额积分</a>
-                            </li>
+<!--                            <li>-->
+<!--                                <a href="javascript:void(0);" lay-event="money">-->
+<!--                                    <i class="layui-icon layui-icon-edit"></i> 余额积分</a>-->
+<!--                            </li>-->
                             <li>
                                 <a href="javascript:void(0);" lay-event="see">
                                     <i class="layui-icon layui-icon-edit"></i> 会员详情</a>
                             </li>
-                            <li>
-                                <a href="javascript:void(0);" lay-event="give_level">
-                                    <i class="layui-icon layui-icon-star-fill" aria-hidden="true"></i> 赠送会员</a>
-                            </li>
-                            {{# if(d.vip_name){ }}
-                            <li>
-                                <a href="javascript:void(0);" lay-event="del_level">
-                                    <i class="layui-icon layui-icon-close-fill" aria-hidden="true"></i> 清除等级</a>
-                            </li>
-                            {{# } }}
+<!--                            <li>-->
+<!--                                <a href="javascript:void(0);" lay-event="give_level">-->
+<!--                                    <i class="layui-icon layui-icon-star-fill" aria-hidden="true"></i> 赠送会员</a>-->
+<!--                            </li>-->
+<!--                            {{# if(d.vip_name){ }}-->
+<!--                            <li>-->
+<!--                                <a href="javascript:void(0);" lay-event="del_level">-->
+<!--                                    <i class="layui-icon layui-icon-close-fill" aria-hidden="true"></i> 清除等级</a>-->
+<!--                            </li>-->
+<!--                            {{# } }}-->
                         </ul>
                     </script>
                 </div>
@@ -282,16 +283,18 @@
     layList.tableList('userList',"{:Url('get_user_list')}",function () {
         return [
             {type:'checkbox'},
-            {field: 'uid', title: '编号',event:'uid',width:'4%',align:'center'},
-            {field: 'avatar', title: '头像', event:'open_image', width: '6%',align:'center', templet: '<p lay-event="open_image"><img class="avatar" style="cursor: pointer" class="open_image" data-image="{{d.avatar}}" src="{{d.avatar}}" alt="{{d.nickname}}"></p>'},
-            {field: 'nickname', title: '姓名',templet:'#nickname',align:'center'},
+            // {field: 'uid', title: '编号',event:'uid',width:'4%',align:'center'},
+            // {field: 'avatar', title: '头像', event:'open_image', width: '6%',align:'center', templet: '<p lay-event="open_image"><img class="avatar" style="cursor: pointer" class="open_image" data-image="{{d.avatar}}" src="{{d.avatar}}" alt="{{d.nickname}}"></p>'},
+            // {field: 'nickname', title: '姓名',templet:'#nickname',align:'10%'},
+            {field: 'account', title: '账号',align:'8%'},
+            {field: 'real_name', title: '真实姓名',align:'center',width:'10%'},
             {field: 'phone', title: '手机号',align:'center',width:'8%'},
-            {field: 'now_money', title: '余额',width:'6%',sort:true,event:'now_money',align:'center'},
+            // {field: 'now_money', title: '余额',width:'6%',sort:true,event:'now_money',align:'center'},
             {field: 'pay_count', title: '购买次数',align:'center',width:'6%'},
-            {field: 'extract_count_price', title: '累计提现',align:'center',width:'6%'},
-            {field: 'integral', title: '积分',width:'6%',sort:true,event:'integral',align:'center'},
-            {field: 'spread_uid_nickname', title: '推荐人',align:'center'},
-            {field: 'sex', title: '性别',width:'4%',align:'center'},
+            // {field: 'extract_count_price', title: '累计提现',align:'center',width:'6%'},
+            // {field: 'integral', title: '积分',width:'6%',sort:true,event:'integral',align:'center'},
+            // {field: 'spread_uid_nickname', title: '推荐人',align:'center'},
+            // {field: 'sex', title: '性别',width:'4%',align:'center'},
             {field: 'data_time', title: '访问日期',align:'center',width:'12%',templet:'#data_time'},
             {field: 'status', title: '状态',templet:"#checkboxstatus",width:'6%',align:'center'},
             {field: 'user_type', title: '用户类型',width:'6%',align:'center'},

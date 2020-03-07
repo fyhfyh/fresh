@@ -140,8 +140,8 @@ class User extends BaseModel
     {
         $model = self::setWherePage(self::setWhere($where), $where, ['w.sex', 'w.province', 'w.city', 'u.status', 'u.is_promoter'], ['u.nickname', 'u.uid', 'u.phone']);
         $list = $model->alias('u')
-            ->join('WechatUser w', 'u.uid=w.uid')
-            ->field('u.*,w.country,w.province,w.city,w.sex,w.unionid,w.openid,w.routine_openid,w.groupid,w.tagid_list,w.subscribe,w.subscribe_time')
+
+            ->field('u.*')
             ->page((int)$where['page'], (int)$where['limit'])
             ->select()
             ->each(function ($item) {
@@ -158,17 +158,17 @@ class User extends BaseModel
                 if ($item['openid'] != '' && $item['routine_openid'] != '') {
                     $item['user_type'] = '通用';
                 } else if ($item['openid'] == '' && $item['routine_openid'] != '') {
-                    $item['user_type'] = '小程序';
+                        $item['user_type'] = '小程序';
                 } else if ($item['openid'] != '' && $item['routine_openid'] == '') {
                     $item['user_type'] = '公众号';
                 } else if ($item['user_type'] == 'h5') {
                     $item['user_type'] = 'H5';
-                } else $item['user_type'] = '其他';
-                if ($item['sex'] == 1) {
-                    $item['sex'] = '男';
-                } else if ($item['sex'] == 2) {
-                    $item['sex'] = '女';
-                } else $item['sex'] = '保密';
+                } else $item['user_type'] = '系统会员';
+//                if ($item['sex'] == 1) {
+//                    $item['sex'] = '男';
+//                } else if ($item['sex'] == 2) {
+//                    $item['sex'] = '女';
+//                } else $item['sex'] = '保密';
                 $item['vip_name'] = false;
                 $levelinfo = UserLevel::where('uid', $item['uid'])->where('level_id',$item['level'])->where('is_del', 0)->order('grade desc')->field('level_id,is_forever,valid_time')->find();
                 if ($levelinfo) {

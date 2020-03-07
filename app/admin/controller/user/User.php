@@ -46,6 +46,41 @@ class User extends AuthController
         return $this->fetch();
     }
 
+    /**
+     * 新增客户
+     */
+    public function add_user(){
+        if($this->request->isGet()) {
+            $field = [
+                Form::input('account', '账号信息')->col(Form::col(24)),
+                Form::input('pwd', '密码')->col(Form::col(24)),
+
+            ];
+            $form = Form::make_post_form('添加产品', $field, Url::buildUrl('add_user'), 2);
+            $this->assign(compact('form'));
+            return $this->fetch('public/form-builder');
+        }
+        if($this->request->isAjax()){
+            $data = Util::postMore([
+                'account',
+                'pwd',
+            ]);
+           if($data['account'] == '')return Json::fail('用户名为必填项！');
+           if($data['pwd'] == '') return Json::fail('密码为必填项！');
+           $data['add_time'] = time();
+           $data['add_ip'] = request()->ip();
+           $data['last_time'] = time();
+           $data['last_ip'] = request()->ip();
+           $data['status'] = 1;
+           $data['user_type'] = 'routine';
+           $res = Db::name('user')->insert($data);
+           if($res){
+               return Json::successful('新增成功');
+           }else{
+               return Json::successful('新增失败');
+           }
+        }
+    }
     /*
      * 赠送会员等级
      * @paran int $uid
@@ -291,7 +326,7 @@ class User extends AuthController
         $f[] = Form::date('birthday', '生日', $user->getData('birthday') ? date('Y-m-d', $user->getData('birthday')) : 0);
         $f[] = Form::input('card_id', '身份证号', $user->getData('card_id'));
         $f[] = Form::textarea('mark', '用户备注', $user->getData('mark'));
-        $f[] = Form::radio('is_promoter', '推广员', $user->getData('is_promoter'))->options([['value' => 1, 'label' => '开启'], ['value' => 0, 'label' => '关闭']]);
+       // $f[] = Form::radio('is_promoter', '推广员', $user->getData('is_promoter'))->options([['value' => 1, 'label' => '开启'], ['value' => 0, 'label' => '关闭']]);
         $f[] = Form::radio('status', '状态', $user->getData('status'))->options([['value' => 1, 'label' => '开启'], ['value' => 0, 'label' => '锁定']]);
         $form = Form::make_post_form('添加用户通知', $f, Url::buildUrl('update', array('uid' => $uid)), 5);
         $this->assign(compact('form'));

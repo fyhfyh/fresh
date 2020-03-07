@@ -37,27 +37,27 @@
 <div class="layui-fluid">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md12 layui-col-sm12 layui-col-lg12">
-            <div class="layui-card">
-                <div class="layui-card-header">会员详情</div>
-                <div class="layui-card-body">
-                    <ul class="layui-row layui-col-space10 layui-this">
-                        {volist name='userinfo' id='vo'}
-                            {if trim($vo.value)}
-                            <li class="layui-col-xs<?=isset($vo['col']) ? $vo['col'] :4?>">
-                                <div class="backlog-body">
-                                    <h3>{$vo.name}</h3>
-                                    <p><cite {if isset($vo['color'])} style="color: {$vo['color']}" {/if}>{$vo.value}</cite></p>
-                                </div>
-                            </li>
-                            {/if}
-                        {/volist}
-                    </ul>
-                </div>
-            </div>
-        </div>
+<!--            <div class="layui-card">-->
+<!--                <div class="layui-card-header">会员详情</div>-->
+<!--                <div class="layui-card-body">-->
+<!--                    <ul class="layui-row layui-col-space10 layui-this">-->
+<!--                        {volist name='userinfo' id='vo'}-->
+<!--                            {if trim($vo.value)}-->
+<!--                            <li class="layui-col-xs--><?//=isset($vo['col']) ? $vo['col'] :4?><!--">-->
+<!--                                <div class="backlog-body">-->
+<!--                                    <h3>{$vo.name}</h3>-->
+<!--                                    <p><cite {if isset($vo['color'])} style="color: {$vo['color']}" {/if}>{$vo.value}</cite></p>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            {/if}-->
+<!--                        {/volist}-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="layui-col-md12 layui-col-sm12 layui-col-lg12">
             <div class="layui-card">
-                <div class="layui-card-header">其他详情</div>
+                <div class="layui-card-header">会员详情</div>
                 <div class="layui-card-body">
                     <div class="layui-row layui-col-space15">
                     {volist name='headerList' id='vo'}
@@ -84,11 +84,11 @@
                     <div class="layui-tab layui-tab-card">
                         <ul class="layui-tab-title">
                             <li class="layui-this">消费能力</li>
-                            <li>积分明细</li>
-                            <li>签到记录</li>
-                            <li>持有优惠劵</li>
-                            <li>余额变动记录</li>
-                            <li>推广下线明细</li>
+<!--                            <li>积分明细</li>-->
+<!--                            <li>签到记录</li>-->
+<!--                            <li>持有优惠劵</li>-->
+<!--                            <li>余额变动记录</li>-->
+<!--                            <li>推广下线明细</li>-->
                         </ul>
                         <div class="layui-tab-content" id="content">
                             <div class="layui-tab-item layui-show">
@@ -99,7 +99,7 @@
                                             <th>收货人</th>
                                             <th>商品数量</th>
                                             <th>商品总价</th>
-                                            <th>实付金额</th>
+<!--                                            <th>实付金额</th>-->
                                             <th>交易完成时间</th>
                                         </tr>
                                     </thead>
@@ -117,7 +117,7 @@
                                             <td>{{item.real_name}}</td>
                                             <td>{{item.total_num}}</td>
                                             <td>{{item.total_price}}</td>
-                                            <td>{{item.pay_price}}</td>
+<!--                                            <td>{{item.pay_price}}</td>-->
                                             <td>{{item.pay_time}}</td>
                                         </tr>
                                         <tr v-show="orderList.length<=0" style="text-align: center">
