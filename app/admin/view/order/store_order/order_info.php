@@ -10,7 +10,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row show-grid">
-                        <div class="col-xs-12" >用户昵称: {$userInfo.nickname}</div>
+                        <div class="col-xs-12" >客户名称: {$userInfo.nickname}</div>
                         <div class="col-xs-12">收货人: {$orderInfo.real_name}</div>
                         <div class="col-xs-12">联系电话: {$orderInfo.user_phone}</div>
                         <div class="col-xs-12">收货地址: {$orderInfo.user_address}</div>
@@ -48,7 +48,7 @@
                         <div class="col-xs-6">商品总数: {$orderInfo.total_num}</div>
                         <div class="col-xs-6">商品总价: ￥{$orderInfo.total_price}</div>
                         <div class="col-xs-6">支付邮费: ￥{$orderInfo.total_postage}</div>
-                        <div class="col-xs-6">优惠券金额: ￥{$orderInfo.coupon_price}</div>
+                        <!-- <div class="col-xs-6">优惠券金额: ￥{$orderInfo.coupon_price}</div> -->
                         <div class="col-xs-6">实际支付: ￥{$orderInfo.pay_price}</div>
                         {if condition="$orderInfo['refund_price'] > 0"}
                         <div class="col-xs-6" style="color: #f1a417">退款金额: ￥{$orderInfo.refund_price}</div>
@@ -60,7 +60,7 @@
                         <div class="col-xs-6" style="color: #f1a417">退回积分: ￥{$orderInfo.back_integral}</div>
                         {/if}
                         <div class="col-xs-6">创建时间: {$orderInfo.add_time|date="Y/m/d H:i"}</div>
-                        <div class="col-xs-6">支付方式:
+                       <!--  <div class="col-xs-6">支付方式:
                             {if condition="$orderInfo['paid'] eq 1"}
                                {if condition="$orderInfo['pay_type'] eq 'weixin'"}
                                微信支付
@@ -78,14 +78,38 @@
                             未支付
                             {/if}
                             {/if}
-                        </div>
+                        </div> -->
                         {notempty name="orderInfo.pay_time"}
                         <div class="col-xs-6">支付时间: {$orderInfo.pay_time|date="Y/m/d H:i"}</div>
                         {/notempty}
                         <div class="col-xs-6" style="color: #ff0005">用户备注: {$orderInfo.mark?:'无'}</div>
-                        <div class="col-xs-6" style="color: #733AF9">推广人: {if $spread}{$spread}{else}无{/if}</div>
+                        <!-- <div class="col-xs-6" style="color: #733AF9">推广人: {if $spread}{$spread}{else}无{/if}</div> -->
                         <div class="col-xs-6" style="color: #733b5c">商家备注: {$orderInfo.remark?:'无'}</div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    商品清单
+                </div>
+                <div class="panel-body">
+                    <div class="row show-grid">
+                   {foreach $_info as $key=>$value} 
+                        
+                        <div class="col-xs-12" ><img width='50' src="{$value.cart_info.productInfo.image}">
+                         &nbsp; &nbsp; &nbsp;
+                        {$value.cart_info.productInfo.store_name}
+                        {present name="value.cart_info.productInfo.attrInfo"}
+                        {$value.cart_info.productInfo.attrInfo.suk}
+                        {/present}
+                        |￥{$value.cart_info.truePrice}
+                        /{$value.cart_info.productInfo.unit_name}
+                        x{$value.cart_info.cart_num}
+                        </div>                       
+                    {/foreach}
                     </div>
                 </div>
             </div>

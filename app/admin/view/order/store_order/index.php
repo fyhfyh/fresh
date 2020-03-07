@@ -376,7 +376,7 @@
             {type:'checkbox'},
             {field: 'order_id', title: '订单号', sort: true,event:'order_id',width:'14%',templet:'#order_id'},
             {field: 'nickname', title: '用户信息',templet:'#userinfo',width:'10%',align:'center'},
-            {field: 'spread_uid', title: '推荐人信息',templet:'#spread_uid',width:'10%',align:'center'},
+            // {field: 'spread_uid', title: '推荐人信息',templet:'#spread_uid',width:'10%',align:'center'},
             {field: 'info', title: '商品信息',templet:"#info",height: 'full-20'},
             {field: 'pay_price', title: '金额',width:'8%',align:'center'},
             // {field: 'paid', title: '支付状态',templet:'#paid',width:'8%',align:'center'},

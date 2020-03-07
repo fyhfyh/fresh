@@ -530,12 +530,25 @@ class StoreOrder extends AuthController
         if(!$oid || !($orderInfo = StoreOrderModel::get($oid)))
             return $this->failed('订单不存在!');
         $userInfo = User::getUserInfos($orderInfo['uid']);
+
         if($userInfo['spread_uid']){
             $spread = User::where('uid',$userInfo['spread_uid'])->value('nickname');
         }else{
             $spread ='';
         }
-        $this->assign(compact('orderInfo','userInfo','spread'));
+        
+        //增加商品清单
+         $_info = Db::name('store_order_cart_info')->where('oid', $oid)->field('cart_info')->select();
+         $_info = count($_info) ? $_info->toArray() : [];
+         foreach ($_info as $k => $v) {
+                $cart_info = json_decode($v['cart_info'], true);
+                if (!isset($cart_info['productInfo'])) $cart_info['productInfo'] = [];
+                $_info[$k]['cart_info'] = $cart_info;
+                unset($cart_info);
+            }
+        // echo '<pre>';
+        // print_r($_info);die;
+        $this->assign(compact('orderInfo','userInfo','spread','_info'));
         return $this->fetch();
     }
     public function express($oid = '')
