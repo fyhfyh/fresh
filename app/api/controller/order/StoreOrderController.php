@@ -184,7 +184,7 @@ class StoreOrderController
                     if (!$orderInfo || !isset($orderInfo['paid'])) return app('json')->fail('支付订单不存在!');
                     $orderInfo = $orderInfo->toArray();
                     if($orderInfo){
-                        StoreOrder::where('order_id', $orderId)->update(['paid'=>1]);
+                        StoreOrder::where('order_id', $orderId)->update(['paid'=>1,'pay_type' => 'weixin', 'pay_time' => time()]);
                         return app('json')->status('success', '下单成功', $info);
                     } 
                     ######################走到这里就行了
