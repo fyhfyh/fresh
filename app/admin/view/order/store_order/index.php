@@ -20,20 +20,20 @@
                                             <span v-if="item.count!=undefined" :class="item.class!=undefined ? 'layui-badge': 'layui-badge layui-bg-gray' ">{{item.count}}</span></button>
                                     </div>
                                 </div>
-                                <div class="layui-col-lg12">
+                         <!--        <div class="layui-col-lg12">
                                     <label class="layui-form-label">订单类型:</label>
                                     <div class="layui-input-block" v-cloak="">
                                         <button class="layui-btn layui-btn-sm" :class="{'layui-btn-primary':where.type!=item.value}" @click="where.type = item.value" type="button" v-for="item in orderType">{{item.name}}
                                             <span v-if="item.count!=undefined" class="layui-badge layui-bg-gray">{{item.count}}</span></button>
                                     </div>
-                                </div>
-                                <div class="layui-col-lg12">
+                                </div> -->
+                           <!--      <div class="layui-col-lg12">
                                     <label class="layui-form-label">支付方式:</label>
                                     <div class="layui-input-block" v-cloak="">
                                         <button class="layui-btn layui-btn-sm" :class="{'layui-btn-primary':where.pay_type!=item.value}" @click="where.pay_type = item.value" type="button" v-for="item in payType">{{item.name}}
                                             <span v-if="item.count!=undefined" class="layui-badge layui-bg-gray">{{item.count}}</span></button>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="layui-col-lg12">
                                     <label class="layui-form-label">创建时间:</label>
                                     <div class="layui-input-block" data-type="data" v-cloak="">
@@ -91,7 +91,7 @@
                 <div class="layui-card-body">
                     <div class="layui-btn-container" id="container-action">
                         <button class="layui-btn layui-btn-sm" data-type="del_order">批量删除订单</button>
-                        <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="write_order">订单核销</button>
+                      <!--   <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="write_order">订单核销</button> -->
                     </div>
                     <table class="layui-hide" id="List" lay-filter="List"></table>
                     <!--订单-->
@@ -111,7 +111,7 @@
                         {{# }else{ }}无{{# } }}
                     </script>
                     <!--支付状态-->
-                    <script type="text/html" id="paid">
+                  <!--   <script type="text/html" id="paid">
                         {{#  if(d.pay_type==1){ }}
                         <p>{{d.pay_type_name}}</p>
                         {{#  }else{ }}
@@ -121,7 +121,7 @@
                         <p>{{d.pay_type_name}}</p>
                         {{# } }}
                         {{# }; }}
-                    </script>
+                    </script> -->
                     <!--订单状态-->
                     <script type="text/html" id="status">
                         {{d.status_name}}
@@ -193,11 +193,11 @@
                                 </a>
                             </li>
                             {{#  if(parseFloat(d.pay_price) > parseFloat(d.refund_price)){ }}
-                            <li>
+                       <!--      <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退款','{:Url('refund_y')}?id={{d.id}}',{w:400,h:300})">
                                     <i class="fa fa-history"></i> 立即退款
                                 </a>
-                            </li>
+                            </li> -->
                             {{#  }else if(d.use_integral > 0 && d.use_integral >= d.back_integral){ }}
                             <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退积分','{:Url('integral_back')}?id={{d.id}}')">
@@ -237,11 +237,11 @@
                             </li>
                             {{#  };}}
                             {{# if(parseFloat(d.pay_price) > parseFloat(d.refund_price)){ }}
-                            <li>
+                        <!--     <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退款','{:Url('refund_y')}?id={{d.id}}',{w:400,h:300})">
                                     <i class="fa fa-history"></i>立即退款
                                 </a>
-                            </li>
+                            </li> -->
                             {{# } ;}}
                             <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('不退款','{:Url('refund_n')}?id={{d.id}}',{w:400,h:300})">
@@ -275,11 +275,11 @@
                                 </a>
                             </li>
                             {{#  if(parseFloat(d.pay_price) > parseFloat(d.refund_price)){ }}
-                            <li>
+                       <!--      <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退款','{:Url('refund_y')}?id={{d.id}}')">
                                     <i class="fa fa-history"></i> 立即退款
                                 </a>
-                            </li>
+                            </li> -->
                             {{# }else if(parseFloat(d.use_integral) > 0 && parseFloat(d.use_integral) > parseFloat(d.back_integral)){ }}
                             <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退积分','{:Url('integral_back')}?id={{d.id}}')">
@@ -307,11 +307,11 @@
                                 </a>
                             </li>
                             {{#  if(parseFloat(d.pay_price) > parseFloat(d.refund_price)){ }}
-                            <li>
+                         <!--    <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退款','{:Url('refund_y')}?id={{d.id}}')">
                                     <i class="fa fa-history"></i> 立即退款
                                 </a>
-                            </li>
+                            </li> -->
                             {{# };}}
                             {{# if(parseFloat(d.use_integral) > 0 && parseFloat(d.use_integral) > parseFloat(d.back_integral)){ }}
                             <li>
@@ -340,11 +340,11 @@
                                 </a>
                             </li>
                             {{#  if(parseFloat(d.pay_price) > parseFloat(d.refund_price)){ }}
-                            <li>
+                        <!--     <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame('退款','{:Url('refund_y')}?id={{d.id}}')">
                                     <i class="fa fa-history"></i> 立即退款
                                 </a>
-                            </li>
+                            </li> -->
                             {{# } }}
                             {{# if(parseFloat(d.use_integral) > 0 && parseFloat(d.use_integral) >= parseFloat(d.back_integral)){ }}
                             <li>
@@ -378,8 +378,8 @@
             {field: 'nickname', title: '用户信息',templet:'#userinfo',width:'10%',align:'center'},
             {field: 'spread_uid', title: '推荐人信息',templet:'#spread_uid',width:'10%',align:'center'},
             {field: 'info', title: '商品信息',templet:"#info",height: 'full-20'},
-            {field: 'pay_price', title: '实际支付',width:'8%',align:'center'},
-            {field: 'paid', title: '支付状态',templet:'#paid',width:'8%',align:'center'},
+            {field: 'pay_price', title: '金额',width:'8%',align:'center'},
+            // {field: 'paid', title: '支付状态',templet:'#paid',width:'8%',align:'center'},
             {field: 'status', title: '订单状态',templet:'#status',width:'8%',align:'center'},
             {field: 'add_time', title: '下单时间',width:'10%',sort: true,align:'center'},
             {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'10%'},
@@ -461,7 +461,7 @@
             }
         },
         write_order:function () {
-            return $eb.createModalFrame('订单核销',layList.U({a:'write_order'}),{w:500,h:400});
+            // return $eb.createModalFrame('订单核销',layList.U({a:'write_order'}),{w:500,h:400});
         },
     };
     $('#container-action').find('button').each(function () {
@@ -508,29 +508,29 @@
             el: "#app",
             data: {
                 badge: [],
-                payType: [
-                    {name: '全部', value: ''},
-                    {name: '微信支付', value: 1,count:payTypeCount.weixin},
-                    {name: '余额支付', value: 2,count:payTypeCount.yue},
-                    {name: '线下支付', value: 3,count:payTypeCount.offline},
-                ],
-                orderType: [
-                    {name: '全部', value: ''},
-                    {name: '普通订单', value: 1,count:orderCount.general},
-                    {name: '拼团订单', value: 2,count:orderCount.pink},
-                    {name: '秒杀订单', value: 3,count:orderCount.seckill},
-                    {name: '砍价订单', value: 4,count:orderCount.bargain},
-                ],
+                // payType: [
+                //     {name: '全部', value: ''},
+                //     {name: '微信支付', value: 1,count:payTypeCount.weixin},
+                //     {name: '余额支付', value: 2,count:payTypeCount.yue},
+                //     {name: '线下支付', value: 3,count:payTypeCount.offline},
+                // ],
+                // orderType: [
+                //     {name: '全部', value: ''},
+                //     {name: '普通订单', value: 1,count:orderCount.general},
+                //     {name: '拼团订单', value: 2,count:orderCount.pink},
+                //     {name: '秒杀订单', value: 3,count:orderCount.seckill},
+                //     {name: '砍价订单', value: 4,count:orderCount.bargain},
+                // ],
                 orderStatus: [
                     {name: '全部', value: ''},
-                    {name: '未支付', value: 0,count:orderCount.wz},
+                    // {name: '未支付', value: 0,count:orderCount.wz},
                     {name: '未发货', value: 1,count:orderCount.wf,class:true},
                     {name: '待收货', value: 2,count:orderCount.ds},
-                    {name: '待核销', value: 5,count:orderCount.write_off},
+                    // {name: '待核销', value: 5,count:orderCount.write_off},
                     {name: '待评价', value: 3,count:orderCount.dp},
                     {name: '交易完成', value: 4,count:orderCount.jy},
-                    {name: '退款中', value: -1,count:orderCount.tk,class:true},
-                    {name: '已退款', value: -2,count:orderCount.yt},
+                    // {name: '退款中', value: -1,count:orderCount.tk,class:true},
+                    // {name: '已退款', value: -2,count:orderCount.yt},
                     {name: '已删除', value: -4,count:orderCount.del},
                 ],
                 dataList: [

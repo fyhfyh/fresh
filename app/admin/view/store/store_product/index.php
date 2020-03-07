@@ -72,7 +72,7 @@
                         {switch name='type'}
                             {case value="1"}
                                 <button class="layui-btn layui-btn-sm" onclick="$eb.createModalFrame(this.innerText,'{:Url('create')}',{h:700,w:1100})">添加产品</button>
-                                <button class="layui-btn layui-btn-sm" onclick="$eb.createModalFrame(this.innerText,'{:Url('store.copy_taobao/index')}',{h:700,w:1100});">复制淘宝、天猫、1688、京东</button>
+                               <!--  <button class="layui-btn layui-btn-sm" onclick="$eb.createModalFrame(this.innerText,'{:Url('store.copy_taobao/index')}',{h:700,w:1100});">复制淘宝、天猫、1688、京东</button> -->
                             {/case}
                             {case value="2"}
                                 <button class="layui-btn layui-btn-sm" data-type="show">批量上架</button>
@@ -89,13 +89,13 @@
                         <input type='checkbox' name='id' lay-skin='switch' value="{{d.id}}" lay-filter='is_show' lay-text='上架|下架'  {{ d.is_show == 1 ? 'checked' : '' }}>
                     </script>
                     <!--收藏-->
-                    <script type="text/html" id="like">
+              <!--       <script type="text/html" id="like">
                         <span><i class="layui-icon layui-icon-praise"></i> {{d.like}}</span>
-                    </script>
+                    </script> -->
                     <!--点赞-->
-                    <script type="text/html" id="collect">
+                  <!--   <script type="text/html" id="collect">
                         <span><i class="layui-icon layui-icon-star"></i> {{d.collect}}</span>
-                    </script>
+                    </script> -->
                     <!--产品名称-->
                     <script type="text/html" id="store_name">
                         <h4>{{d.store_name}}</h4>
@@ -120,7 +120,7 @@
                                 <a href="javascript:void(0);" class="" onclick="$eb.createModalFrame(this.innerText,'{:Url('edit_content')}?id={{d.id}}')">
                                     <i class="fa fa-pencil"></i> 产品详情</a>
                             </li>
-                            <li>
+                      <!--       <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame(this.innerText,'{:Url('ump.store_seckill/seckill')}?id={{d.id}}')"">
                                 <i class="fa fa-gavel"></i> 开启秒杀</a>
                             </li>
@@ -131,7 +131,7 @@
                             <li>
                                 <a href="javascript:void(0);" onclick="$eb.createModalFrame(this.innerText,'{:Url('ump.store_combination/combination')}?id={{d.id}}')">
                                     <i class="fa fa-hand-lizard-o"></i> 开启拼团</a>
-                            </li>
+                            </li> -->
                             {{# if(d.is_del){ }}
                             <li>
                                 <a href="javascript:void(0);" lay-event='delstor'>
@@ -145,11 +145,11 @@
                                 </a>
                             </li>
                             {{# } }}
-                            <li>
+                          <!--   <li>
                                 <a href="{:Url('store.storeProductReply/index')}?product_id={{d.id}}">
                                     <i class="fa fa-warning"></i> 评论查看
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </script>
                 </div>
@@ -171,12 +171,12 @@
                     {field: 'id', title: 'ID', sort: true,event:'id',width:'6%'},
                     {field: 'image', title: '产品图片',templet:'#image',width:'10%'},
                     {field: 'store_name', title: '产品名称',templet:'#store_name'},
-                    {field: 'ficti', title: '虚拟销量',edit:'ficti',width:'8%'},
+                    // {field: 'ficti', title: '虚拟销量',edit:'ficti',width:'8%'},
                     {field: 'stock', title: '库存',edit:'stock',width:'8%'},
                     {field: 'sort', title: '排序',edit:'sort',width:'6%'},
                     {field: 'sales', title: '销量',sort: true,event:'sales',width:'8%'},
-                    {field: 'collect', title: '点赞',templet:'#like',width:'6%'},
-                    {field: 'like', title: '收藏',templet:'#collect',width:'6%'},
+                    // {field: 'collect', title: '点赞',templet:'#like',width:'6%'},
+                    // {field: 'like', title: '收藏',templet:'#collect',width:'6%'},
                     {field: 'status', title: '状态',templet:"#checkboxstatus",width:'8%'},
                     {field: 'right', title: '操作',align:'center',toolbar:'#act',width:'14%'},
                 ];
@@ -188,7 +188,7 @@
                     {field: 'image', title: '产品图片',templet:'#image',width:'10%'},
                     {field: 'store_name', title: '产品名称',templet:'#store_name'},
                     {field: 'price', title: '价格',edit:'price',width:'8%'},
-                    {field: 'ficti', title: '虚拟销量',edit:'ficti',width:'8%'},
+                    // {field: 'ficti', title: '虚拟销量',edit:'ficti',width:'8%'},
                     {field: 'stock', title: '库存',edit:'stock',width:'6%'},
                     {field: 'sort', title: '排序',edit:'sort',width:'6%'},
                     {field: 'sales', title: '销量',sort: true,event:'sales',width:'6%'},
@@ -202,7 +202,7 @@
                     {field: 'image', title: '产品图片',templet:'#image'},
                     {field: 'store_name', title: '产品名称',templet:'#store_name'},
                     {field: 'price', title: '产品价格',edit:'price'},
-                    {field: 'ficti', title: '虚拟销量',edit:'ficti'},
+                    // {field: 'ficti', title: '虚拟销量',edit:'ficti'},
                     {field: 'stock', title: '库存',edit:'stock'},
                     {field: 'sort', title: '排序',edit:'sort'},
                     {field: 'sales', title: '销量',sort: true,event:'sales'},

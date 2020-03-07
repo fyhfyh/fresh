@@ -586,7 +586,7 @@ HTML;
                 'col' => 2
             ],
             [
-                'name' => '微信支付金额',
+                'name' => '微信下单金额',
                 'field' => '元',
                 'count' => $price['pay_price_wx'],
                 'background_color' => 'layui-bg-blue',

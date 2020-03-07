@@ -1,4 +1,4 @@
-<?php /*a:2:{s:52:"E:\phpstudy\WWW\fresh\app\admin\view\index\index.php";i:1583413140;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;}*/ ?>
+<?php /*a:2:{s:52:"E:\phpstudy\WWW\fresh\app\admin\view\index\index.php";i:1583496290;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -120,14 +120,14 @@
                         </div>
                     </a>
                 </li>
-                <li class="divider"></li>
+               <!--  <li class="divider"></li>
                 <li>
                     <a class="J_menuItem" href="<?php echo Url('finance.user_extract/index'); ?>">
                         <div>
                             <i class="fa fa-cny"></i> 申请提现 <span class="pull-right text-muted small" id="reflectnum">0个</span>
                         </div>
                     </a>
-                </li>
+                </li> -->
             </ul>
             <a href="javascript:void(0);" class="roll-nav roll-right J_tabSetting right-sidebar-toggle" title="更多"><i class="fa fa-tasks"></i></a>
             <div class="btn-group roll-nav roll-right">

@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 ui-sortable">
+       <!--  <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-info pull-right">待</span>
@@ -30,7 +30,7 @@
                     <small><a href="javascript:;" class="opFrames" data-name="订单管理" data-href="{:Url('order.store_order/index',['status'=>-1])}">退换货</a></small>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-sm-3 ui-sortable" >
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 ui-sortable">
+       <!--  <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-danger pull-right">待</span>
@@ -54,7 +54,7 @@
                     <small><a href="javascript:;" class="opFrames" data-name="提现盛情" data-href="{:Url('finance.user_extract/index')}">待提现</a></small>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 ui-sortable">
+      <!--   <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-info pull-right">今</span>
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-
+ -->
     </div>
 <div id="app">
     <div class="row">

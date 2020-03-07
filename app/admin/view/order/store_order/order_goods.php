@@ -5,12 +5,12 @@
         <div class="layui-form-item">
             <label class="layui-form-label">选择类型</label>
             <div class="layui-input-block">
-                <input type="radio" name="type" value="1" lay-filter="type" title="发货" checked>
-                <input type="radio" name="type" value="2" lay-filter="type" title="送货">
+                <!-- <input type="radio" name="type" value="1" lay-filter="type" title="发货" checked> -->
+                <input type="radio" name="type" value="2" lay-filter="type" title="送货" checked>
                 <input type="radio" name="type" value="3" lay-filter="type" title="虚拟">
             </div>
         </div>
-        <div class="type" data-type="1">
+  <!--       <div class="type" data-type="1">
             <div class="layui-form-item">
                 <label class="layui-form-label">快递公司</label>
                 <div class="layui-input-block">
@@ -28,8 +28,8 @@
                     <input type="text" name="delivery_id"   placeholder="请输入快递单号" autocomplete="off" class="layui-input">
                 </div>
             </div>
-        </div>
-        <div class="type" data-type="2" style="display: none">
+        </div> -->
+        <div class="type" data-type="2" style="">
             <div class="layui-form-item">
                 <label class="layui-form-label">送货人姓名</label>
                 <div class="layui-input-block">
@@ -68,10 +68,10 @@
     });
     layList.search('delivery',function (data) {
         console.log(data);
-        if(data.type == '1'){
-            if(!data.delivery_name) return layList.msg('请选择快递公司');
-            if(!data.delivery_id) return layList.msg('请填写快递单号');
-        }
+        // if(data.type == '1'){
+        //     if(!data.delivery_name) return layList.msg('请选择快递公司');
+        //     if(!data.delivery_id) return layList.msg('请填写快递单号');
+        // }
         if(data.type == '2'){
             if(!data.sh_delivery_name) return layList.msg('请填写送货人姓名');
             if(!data.sh_delivery_id) return layList.msg('请填写送货人电话');

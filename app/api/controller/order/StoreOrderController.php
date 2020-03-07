@@ -183,7 +183,13 @@ class StoreOrderController
                     $orderInfo = StoreOrder::where('order_id', $orderId)->find();
                     if (!$orderInfo || !isset($orderInfo['paid'])) return app('json')->fail('支付订单不存在!');
                     $orderInfo = $orderInfo->toArray();
-                    if ($orderInfo['paid']) return app('json')->fail('支付已支付!');
+                    if($orderInfo){
+                        StoreOrder::where('order_id', $orderId)->update(['paid'=>1]);
+                        return app('json')->status('success', '下单成功', $info);
+                    } 
+                    ######################走到这里就行了
+                    #
+                    // if ($orderInfo['paid']) return app('json')->fail('支付已支付!');
                     //支付金额为0
                     if (bcsub((float)$orderInfo['pay_price'], 0, 2) <= 0) {
                         //创建订单jspay支付

@@ -1,4 +1,4 @@
-<?php /*a:5:{s:51:"E:\phpstudy\WWW\fresh\app\admin\view\index\main.php";i:1583413140;s:57:"E:\phpstudy\WWW\fresh\app\admin\view\public\container.php";i:1583413140;s:58:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_head.php";i:1583413140;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;s:60:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_footer.php";i:1583413140;}*/ ?>
+<?php /*a:5:{s:51:"E:\phpstudy\WWW\fresh\app\admin\view\index\main.php";i:1583496360;s:57:"E:\phpstudy\WWW\fresh\app\admin\view\public\container.php";i:1583413140;s:58:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_head.php";i:1583413140;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;s:60:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_footer.php";i:1583413140;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -93,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 ui-sortable">
+       <!--  <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-info pull-right">待</span>
@@ -104,7 +104,7 @@
                     <small><a href="javascript:;" class="opFrames" data-name="订单管理" data-href="<?php echo Url('order.store_order/index',['status'=>-1]); ?>">退换货</a></small>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-sm-3 ui-sortable" >
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -117,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 ui-sortable">
+       <!--  <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-danger pull-right">待</span>
@@ -128,7 +128,7 @@
                     <small><a href="javascript:;" class="opFrames" data-name="提现盛情" data-href="<?php echo Url('finance.user_extract/index'); ?>">待提现</a></small>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
@@ -161,7 +161,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 ui-sortable">
+      <!--   <div class="col-sm-3 ui-sortable">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-info pull-right">今</span>
@@ -193,7 +193,7 @@
                 </div>
             </div>
         </div>
-
+ -->
     </div>
 <div id="app">
     <div class="row">
