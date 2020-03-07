@@ -7,8 +7,6 @@
     <embed id="LODOP_EM" type="application/x-print-lodop" width="0"
            height="0"></embed>
 </object>
-
-<input type="button" value="打印预览" onclick='MyPreview()'>
 <div class="ibox-content order-info" id='d1'>
 
     <div class="row">
@@ -16,6 +14,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     收货信息
+                    <button style='float: right' class="btn btn-primary btn-xs"onclick='MyPreview()'><i class="fa fa-print"></i>打印预览</button>
                 </div>
                 <div class="panel-body">
                     <div class="row show-grid">

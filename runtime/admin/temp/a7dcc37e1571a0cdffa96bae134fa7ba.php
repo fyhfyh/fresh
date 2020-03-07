@@ -1,4 +1,4 @@
-<?php /*a:2:{s:52:"E:\phpstudy\WWW\fresh\app\admin\view\index\index.php";i:1583496290;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;}*/ ?>
+<?php /*a:2:{s:52:"E:\phpstudy\WWW\fresh\app\admin\view\index\index.php";i:1583589539;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,8 +41,8 @@
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a class="J_menuItem admin_close" href="<?php echo Url('setting.systemAdmin/admin_info'); ?>">个人资料</a>
                             </li>
-                            <li><a class="admin_close" target="_blank" href="http://www.crmeb.com/">联系我们</a>
-                            </li>
+                          <!--   <li><a class="admin_close" target="_blank" href="http://www.crmeb.com/">联系我们</a>
+                            </li> -->
                             <li class="divider"></li>
                             <li><a href="<?php echo Url('login/logout'); ?>">安全退出</a>
                             </li>
