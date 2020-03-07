@@ -1,6 +1,15 @@
 {extend name="public/container"}
 {block name="content"}
-<div class="ibox-content order-info">
+<script type="text/javascript" language="javascript" src="{__PUBLIC_PATH}LodopFuncs.js"></script>
+<object id="LODOP_OB"
+        classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0"
+        height="0">
+    <embed id="LODOP_EM" type="application/x-print-lodop" width="0"
+           height="0"></embed>
+</object>
+
+<input type="button" value="打印预览" onclick='MyPreview()'>
+<div class="ibox-content order-info" id='d1'>
 
     <div class="row">
         <div class="col-sm-12">
@@ -46,7 +55,7 @@
                             {/if}
                         </div>
                         <div class="col-xs-6">商品总数: {$orderInfo.total_num}</div>
-                        <div class="col-xs-6">商品总价: ￥{$orderInfo.total_price}</div>
+                        <div class="col-xs-6 ZJ">商品总价: ￥{$orderInfo.total_price}</div>
                         <div class="col-xs-6">支付邮费: ￥{$orderInfo.total_postage}</div>
                         <!-- <div class="col-xs-6">优惠券金额: ￥{$orderInfo.coupon_price}</div> -->
                         <div class="col-xs-6">实际支付: ￥{$orderInfo.pay_price}</div>
@@ -96,18 +105,16 @@
                     商品清单
                 </div>
                 <div class="panel-body">
-                    <div class="row show-grid">
+                    <div class="row show-grid QD">
                    {foreach $_info as $key=>$value} 
                         
-                        <div class="col-xs-12" ><img width='50' src="{$value.cart_info.productInfo.image}">
-                         &nbsp; &nbsp; &nbsp;
-                        {$value.cart_info.productInfo.store_name}
-                        {present name="value.cart_info.productInfo.attrInfo"}
-                        {$value.cart_info.productInfo.attrInfo.suk}
-                        {/present}
-                        |￥{$value.cart_info.truePrice}
-                        /{$value.cart_info.productInfo.unit_name}
-                        x{$value.cart_info.cart_num}
+                        <div class="col-xs-12 shoplist" >
+                        <img width='50' src="{$value.cart_info.productInfo.image}">
+  <!-- 属性名称 -->
+<span id='MC'>{$value.cart_info.productInfo.store_name}{present name="value.cart_info.productInfo.attrInfo"}|{$value.cart_info.productInfo.attrInfo.suk}{/present} </span>    
+                           
+<span id='JG'>￥{$value.cart_info.truePrice}/{$value.cart_info.productInfo.unit_name}</span>
+                        <span id='SL'>x{$value.cart_info.cart_num}</span>
                         </div>                       
                     {/foreach}
                     </div>
@@ -157,9 +164,57 @@
         </div>
     </div>
 </div>
-
+<script>
+   var LODOP; //声明为全局变量
+    function ReSumMoney() { 
+        var fSumvalue=0;
+        for (i = 1; i < 8; i++) {
+            if (document.getElementById("CK"+i).checked) {
+                fSumvalue=fSumvalue+parseFloat(document.getElementById("DJ"+i).value);
+            }            
+        }   
+        document.getElementById("HJ").value=fSumvalue.toFixed(2);
+    };
+    function MyPreview() {  
+        AddTitle();
+        //商品清单数据
+        var shoplen = $('.shoplist').length;
+        var iCurLine=80;//标题行之后的数据从位置80px开始打印
+        var qd = $('.QD');
+        var ZJ = $('.ZJ').text();
+        for (i = 0; i < shoplen; i++) {                    
+                LODOP.ADD_PRINT_TEXT(iCurLine,149,100,20,qd.children().eq(i).find('#MC').text());
+                LODOP.ADD_PRINT_TEXT(iCurLine,289,100,20,qd.children().eq(i).find('#JG').text());
+                LODOP.ADD_PRINT_TEXT(iCurLine,409,100,20,qd.children().eq(i).find('#SL').text().substr(1));
+                iCurLine=iCurLine+25;//每行占25px          
+        }       
+        LODOP.ADD_PRINT_LINE(iCurLine,14,iCurLine,510,0,1);
+        LODOP.ADD_PRINT_TEXT(iCurLine+5,20,300,20,"打印时间："+(new Date()).toLocaleDateString()+" "+(new Date()).toLocaleTimeString());
+                LODOP.ADD_PRINT_TEXT(iCurLine+5,346,150,20,ZJ);                
+        LODOP.SET_PRINT_PAGESIZE(3,1385,45,"");//这里3表示纵向打印且纸高“按内容的高度”；1385表示纸宽138.5mm；45表示页底空白4.5mm
+        LODOP.PREVIEW();    
+    };
+    function AddTitle(){    
+        LODOP=getLodop();  
+        LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_不同高度幅面");
+        LODOP.ADD_PRINT_TEXT(15,102,355,30,"北京市东城区沃乐福商城收款票据");
+        LODOP.SET_PRINT_STYLEA(1,"FontSize",13);
+        LODOP.SET_PRINT_STYLEA(1,"Bold",1);
+        LODOP.ADD_PRINT_TEXT(50,149,100,20,"商品名称");
+        LODOP.SET_PRINT_STYLEA(3,"FontSize",10);
+        LODOP.SET_PRINT_STYLEA(3,"Bold",1);
+        LODOP.ADD_PRINT_TEXT(50,289,100,20,"商品数量");
+        LODOP.SET_PRINT_STYLEA(4,"FontSize",10);
+        LODOP.SET_PRINT_STYLEA(4,"Bold",1);
+        LODOP.ADD_PRINT_TEXT(50,409,100,20,"单价(元)");
+        LODOP.SET_PRINT_STYLEA(5,"FontSize",10);
+        LODOP.SET_PRINT_STYLEA(5,"Bold",1);
+        LODOP.ADD_PRINT_LINE(72,14,73,510,0,1);
+    };  
+</script>  
 
 <script src="{__FRAME_PATH}js/content.min.js?v=1.0.0"></script>
+  
 {/block}
 {block name="script"}
 
