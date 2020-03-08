@@ -66,12 +66,12 @@
                                         <button class="layui-btn layui-btn-sm" :class="{'layui-btn-primary':status!==item.value}" @click="setwhere(item,1)" type="button" v-for="item in statusList">{{item.name}}</button>
                                     </div>
                                 </div>
-                                <div class="layui-col-lg12">
+                            <!--     <div class="layui-col-lg12">
                                     <label class="layui-form-label">产品类型:</label>
                                     <div class="layui-input-block" v-cloak="">
                                         <button class="layui-btn layui-btn-sm" :class="{'layui-btn-primary':type!=item.value}" @click="setwhere(item,2)" type="button" v-for="item in typeList">{{item.name}}</button>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="layui-col-lg12">
                                     <label class="layui-form-label">创建时间:</label>
                                     <div class="layui-input-block" data-type="data" v-cloak="">
@@ -142,13 +142,13 @@
                 RefundList:[],
                 statusList:[
                     {name:'全部商品',value:''},
-                    {name:'未支付',value:0},
+                    // {name:'未支付',value:0},
                     {name:'未发货',value:1},
                     {name:'待收货',value:2},
                     {name:'待评价',value:3},
                     {name:'交易完成',value:4},
-                    {name:'退款中',value:-1},
-                    {name:'已退款',value:-2},
+                    // {name:'退款中',value:-1},
+                    // {name:'已退款',value:-2},
                 ],
                 dataList:[
                     {name:'全部',value:''},
@@ -159,13 +159,13 @@
                     {name:'本季度',value:'quarter'},
                     {name:'本年',value:'year'},
                 ],
-                typeList:[
-                    {name:'全部',value:''},
-                    {name:'普通',value:1},
-                    {name:'拼团',value:2},
-                    {name:'砍价',value:3},
-                    {name:'秒杀',value:4},
-                ],
+                // typeList:[
+                //     {name:'全部',value:''},
+                //     {name:'普通',value:1},
+                //     {name:'拼团',value:2},
+                //     {name:'砍价',value:3},
+                //     {name:'秒杀',value:4},
+                // ],
                 status:'',
                 type:'',
                 data:'',

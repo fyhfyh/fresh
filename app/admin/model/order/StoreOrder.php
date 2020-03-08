@@ -585,13 +585,13 @@ HTML;
                 'background_color' => 'layui-bg-blue',
                 'col' => 2
             ],
-            [
-                'name' => '微信下单金额',
-                'field' => '元',
-                'count' => $price['pay_price_wx'],
-                'background_color' => 'layui-bg-blue',
-                'col' => 2
-            ],
+            // [
+            //     'name' => '微信下单金额',
+            //     'field' => '元',
+            //     'count' => $price['pay_price_wx'],
+            //     'background_color' => 'layui-bg-blue',
+            //     'col' => 2
+            // ],
             [
                 'name' => '余额支付金额',
                 'field' => '元',
@@ -964,36 +964,36 @@ HTML;
     public static function getOrderBadge($where)
     {
         return [
-            [
-                'name' => '拼团订单数量',
-                'field' => '个',
-                'count' => self::setEchatWhere($where, 2)->count(),
-                'content' => '拼团总订单数量',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, 2, true)->count(),
-                'class' => 'fa fa-line-chart',
-                'col' => 2
-            ],
-            [
-                'name' => '砍价订单数量',
-                'field' => '个',
-                'count' => self::setEchatWhere($where, 4)->count(),
-                'content' => '砍价总订单数量',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, 4, true)->count(),
-                'class' => 'fa fa-line-chart',
-                'col' => 2
-            ],
-            [
-                'name' => '秒杀订单数量',
-                'field' => '个',
-                'count' => self::setEchatWhere($where, 3)->count(),
-                'content' => '秒杀总订单数量',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, 3, true)->count(),
-                'class' => 'fa fa-line-chart',
-                'col' => 2
-            ],
+            // [
+            //     'name' => '拼团订单数量',
+            //     'field' => '个',
+            //     'count' => self::setEchatWhere($where, 2)->count(),
+            //     'content' => '拼团总订单数量',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, 2, true)->count(),
+            //     'class' => 'fa fa-line-chart',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '砍价订单数量',
+            //     'field' => '个',
+            //     'count' => self::setEchatWhere($where, 4)->count(),
+            //     'content' => '砍价总订单数量',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, 4, true)->count(),
+            //     'class' => 'fa fa-line-chart',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '秒杀订单数量',
+            //     'field' => '个',
+            //     'count' => self::setEchatWhere($where, 3)->count(),
+            //     'content' => '秒杀总订单数量',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, 3, true)->count(),
+            //     'class' => 'fa fa-line-chart',
+            //     'col' => 2
+            // ],
             [
                 'name' => '普通订单数量',
                 'field' => '个',
@@ -1004,66 +1004,66 @@ HTML;
                 'class' => 'fa fa-line-chart',
                 'col' => 2,
             ],
-            [
-                'name' => '使用优惠卷金额',
-                'field' => '元',
-                'count' => self::setEchatWhere($where)->sum('coupon_price'),
-                'content' => '普通总订单数量',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, null, true)->sum('coupon_price'),
-                'class' => 'fa fa-line-chart',
-                'col' => 2
-            ],
-            [
-                'name' => '积分消耗数',
-                'field' => '个',
-                'count' => self::setEchatWhere($where)->sum('use_integral'),
-                'content' => '积分消耗总数',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, null, true)->sum('use_integral'),
-                'class' => 'fa fa-line-chart',
-                'col' => 2
-            ],
-            [
-                'name' => '积分抵扣金额',
-                'field' => '个',
-                'count' => self::setEchatWhere($where)->sum('deduction_price'),
-                'content' => '积分抵扣总金额',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, null, true)->sum('deduction_price'),
-                'class' => 'fa fa-money',
-                'col' => 2
-            ],
-            [
-                'name' => '在线支付金额',
-                'field' => '元',
-                'count' => self::setEchatWhere($where)->where(['paid'=>1,'refund_status'=>0])->where('pay_type', 'weixin')->sum('pay_price'),
-                'content' => '在线支付总金额',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, null, true)->where(['paid'=>1,'refund_status'=>0])->where('pay_type', 'weixin')->sum('pay_price'),
-                'class' => 'fa fa-weixin',
-                'col' => 2
-            ],
-            [
-                'name' => '余额支付金额',
-                'field' => '元',
-                'count' => self::setEchatWhere($where)->where('pay_type', 'yue')->where(['paid'=>1,'refund_status'=>0])->sum('pay_price'),
-                'content' => '余额支付总金额',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, null, true)->where(['paid'=>1,'refund_status'=>0])->where('pay_type', 'yue')->sum('pay_price'),
-                'class' => 'fa  fa-balance-scale',
-                'col' => 2
-            ],
-            [
-                'name' => '赚取积分',
-                'field' => '分',
-                'count' => self::setEchatWhere($where)->sum('gain_integral'),
-                'content' => '赚取总积分',
-                'background_color' => 'layui-bg-cyan',
-                'sum' => self::setEchatWhere($where, null, true)->sum('gain_integral'),
-                'class' => 'fa fa-gg-circle',
-                'col' => 2
-            ],
+            // [
+            //     'name' => '使用优惠卷金额',
+            //     'field' => '元',
+            //     'count' => self::setEchatWhere($where)->sum('coupon_price'),
+            //     'content' => '普通总订单数量',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, null, true)->sum('coupon_price'),
+            //     'class' => 'fa fa-line-chart',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '积分消耗数',
+            //     'field' => '个',
+            //     'count' => self::setEchatWhere($where)->sum('use_integral'),
+            //     'content' => '积分消耗总数',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, null, true)->sum('use_integral'),
+            //     'class' => 'fa fa-line-chart',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '积分抵扣金额',
+            //     'field' => '个',
+            //     'count' => self::setEchatWhere($where)->sum('deduction_price'),
+            //     'content' => '积分抵扣总金额',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, null, true)->sum('deduction_price'),
+            //     'class' => 'fa fa-money',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '在线支付金额',
+            //     'field' => '元',
+            //     'count' => self::setEchatWhere($where)->where(['paid'=>1,'refund_status'=>0])->where('pay_type', 'weixin')->sum('pay_price'),
+            //     'content' => '在线支付总金额',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, null, true)->where(['paid'=>1,'refund_status'=>0])->where('pay_type', 'weixin')->sum('pay_price'),
+            //     'class' => 'fa fa-weixin',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '余额支付金额',
+            //     'field' => '元',
+            //     'count' => self::setEchatWhere($where)->where('pay_type', 'yue')->where(['paid'=>1,'refund_status'=>0])->sum('pay_price'),
+            //     'content' => '余额支付总金额',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, null, true)->where(['paid'=>1,'refund_status'=>0])->where('pay_type', 'yue')->sum('pay_price'),
+            //     'class' => 'fa  fa-balance-scale',
+            //     'col' => 2
+            // ],
+            // [
+            //     'name' => '赚取积分',
+            //     'field' => '分',
+            //     'count' => self::setEchatWhere($where)->sum('gain_integral'),
+            //     'content' => '赚取总积分',
+            //     'background_color' => 'layui-bg-cyan',
+            //     'sum' => self::setEchatWhere($where, null, true)->sum('gain_integral'),
+            //     'class' => 'fa fa-gg-circle',
+            //     'col' => 2
+            // ],
             [
                 'name' => '交易额',
                 'field' => '元',
