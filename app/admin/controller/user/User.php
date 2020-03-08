@@ -52,10 +52,13 @@ class User extends AuthController
     public function add_user(){
         if($this->request->isGet()) {
             $field = [
-                Form::input('account', '账号信息')->col(Form::col(24)),
-                Form::input('pwd', '密码')->col(Form::col(24)),
+                Form::input('account', '账号信息')->col(Form::col(10))->placeholder('必填'),
 
+                Form::input('pwd', '密码')->col(Form::col(10))->type('password')->placeholder('不填密码默认为 123456'),
+                Form::input('real_name', '真实姓名')->col(Form::col(10))->placeholder('必填'),
+                Form::input('phone', '手机号')->col(Form::col(10))->placeholder('必填'),
             ];
+
             $form = Form::make_post_form('添加产品', $field, Url::buildUrl('add_user'), 2);
             $this->assign(compact('form'));
             return $this->fetch('public/form-builder');
@@ -64,9 +67,14 @@ class User extends AuthController
             $data = Util::postMore([
                 'account',
                 'pwd',
+                'real_name',
+                'phone'
             ]);
            if($data['account'] == '')return Json::fail('用户名为必填项！');
-           if($data['pwd'] == '') return Json::fail('密码为必填项！');
+           if($data['pwd'] == '') $data['pwd'] = md5('123456');
+           if($data['real_name'] == '') return Json::fail('姓名为必填项！');
+           if($data['phone'] == '') return Json::fail('手机号为必填项！');
+           $data['nickname'] = $data['real_name'];
            $data['add_time'] = time();
            $data['add_ip'] = request()->ip();
            $data['last_time'] = time();
