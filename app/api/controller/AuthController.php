@@ -38,8 +38,6 @@ class AuthController
         if($user) {
             if ($user->pwd !== md5($request->param('password')))
                 return app('json')->fail('账号或密码错误');
-            if ($user->pwd === md5(123456))
-                return app('json')->fail('请修改您的初始密码，再尝试登陆！');
         }else{
             return app('json')->fail('账号或密码错误');
         }
@@ -48,13 +46,16 @@ class AuthController
 
 
         // 设置推广关系
-        User::setSpread(intval($request->param('spread')), $user->uid);
+       // User::setSpread(intval($request->param('spread')), $user->uid);
 
         $token = UserToken::createToken($user, 'user');
 
         if ($token) {
             event('UserLogin', [$user, $token]);
-            return app('json')->success('登录成功', ['token' => $token->token, 'expires_time' => $token->expires_time]);
+            if ($user->pwd === md5(123456)){
+                return app('json')->success('登录成功', ['userinfo' => $user,'token' => $token->token, 'expires_time' => $token->expires_time]);
+            }
+            return app('json')->success('登录成功', ['userinfo' => $user,'token' => $token->token, 'expires_time' => $token->expires_time]);
         } else
             return app('json')->fail('登录失败');
     }
