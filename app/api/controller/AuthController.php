@@ -43,8 +43,7 @@ class AuthController
         }
         if (!$user['status'])
             return app('json')->fail('已被禁止，请联系管理员');
-
-
+        
         // 设置推广关系
        // User::setSpread(intval($request->param('spread')), $user->uid);
 
