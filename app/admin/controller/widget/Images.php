@@ -113,8 +113,11 @@ class Images extends AuthController
         $post = $request->post();
         if(empty($post['imageid'] ))
         Json::fail('还没选择要删除的图片呢？');
-        foreach ($post['imageid'] as $v){
-            self::deleteimganddata($v);
+        foreach ($post['imageid'] as $key=>$v){
+            if($v!='')  
+            {
+                self::deleteimganddata($v);
+            } 
         }
         Json::successful('删除成功');
     }
