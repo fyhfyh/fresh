@@ -1,4 +1,4 @@
-<?php /*a:5:{s:51:"E:\phpstudy\WWW\fresh\app\admin\view\index\main.php";i:1583496360;s:57:"E:\phpstudy\WWW\fresh\app\admin\view\public\container.php";i:1583413140;s:58:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_head.php";i:1583413140;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;s:60:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_footer.php";i:1583413140;}*/ ?>
+<?php /*a:5:{s:51:"E:\phpstudy\WWW\fresh\app\admin\view\index\main.php";i:1583496360;s:57:"E:\phpstudy\WWW\fresh\app\admin\view\public\container.php";i:1583413140;s:58:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_head.php";i:1583826974;s:53:"E:\phpstudy\WWW\fresh\app\admin\view\public\style.php";i:1583413140;s:60:"E:\phpstudy\WWW\fresh\app\admin\view\public\frame_footer.php";i:1583413140;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
