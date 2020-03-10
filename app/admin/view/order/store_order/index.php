@@ -176,7 +176,7 @@
                             </li>
                         </ul>
                         {{#  }else if(d._status==2){ }}
-                        {{# if(d.shipping_type==1){ }}
+                        {{# if(d.shipping_type==1 && d.is_del!=1){ }}
                         <button class="btn btn-primary btn-xs" type="button" onclick="$eb.createModalFrame('发送货','{:Url('order_goods')}?id={{d.id}}',{w:400,h:250})">
                             <i class="fa fa-cart-plus"></i> 发送货</button>
                         {{# } }}
