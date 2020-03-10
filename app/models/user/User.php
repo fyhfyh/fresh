@@ -27,7 +27,7 @@ class User extends BaseModel
     protected $insert = ['add_time', 'add_ip', 'last_time', 'last_ip'];
 
     protected $hidden = [
-        'add_ip', 'add_time', 'account', 'clean_time', 'last_ip', 'last_time', 'pwd', 'status', 'mark', 'pwd'
+        'add_ip', 'add_time', 'clean_time', 'last_ip', 'last_time', 'pwd', 'status', 'mark', 'pwd'
     ];
 
     protected function setAddTimeAttr($value)
