@@ -193,6 +193,7 @@
                         layList.msg(res.msg);
                     })
                 })
+             location.reload();
             },
             //移动图片分类
             moveCate:function(){
