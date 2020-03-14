@@ -13,7 +13,7 @@
 namespace think;
 define('DS', DIRECTORY_SEPARATOR);
 $REQUEST_URI = explode('/', $_SERVER['REQUEST_URI']);
-if($REQUEST_URI[1]!='admin')
+if($REQUEST_URI[1]!='admin'||$REQUEST_URI[1]!='api'||$REQUEST_URI[1]!='wap')
 {
 	echo 'File not found.';die;
 }
