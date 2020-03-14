@@ -34,6 +34,7 @@ class AuthController
      */
     public function login(Request $request)
     {
+
         $user = User::where('account', $request->param('account'))->find();
         if($user) {
             if ($user->pwd !== md5($request->param('password')))
@@ -52,9 +53,9 @@ class AuthController
         if ($token) {
             event('UserLogin', [$user, $token]);
             if ($user->pwd === md5(123456)){
-                return app('json')->success('登录成功', ['userinfo' => $user,'token' => $token->token, 'expires_time' => $token->expires_time]);
+                return app('json')->success('登录成功', ['userinfo' => $user,'token' => $token->token, 'expires_time' => strtotime($token->expires_time)]);
             }
-            return app('json')->success('登录成功', ['userinfo' => $user,'token' => $token->token, 'expires_time' => $token->expires_time]);
+            return app('json')->success('登录成功', ['userinfo' => $user,'token' => $token->token, 'expires_time' => strtotime($token->expires_time)]);
         } else
             return app('json')->fail('登录失败');
     }
