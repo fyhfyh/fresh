@@ -461,7 +461,7 @@
             }
         },
         write_order:function () {
-            // return $eb.createModalFrame('订单核销',layList.U({a:'write_order'}),{w:500,h:400});
+            return $eb.createModalFrame('订单核销',layList.U({a:'write_order'}),{w:500,h:400});
         },
     };
     $('#container-action').find('button').each(function () {
