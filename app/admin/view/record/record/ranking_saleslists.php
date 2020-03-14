@@ -43,7 +43,7 @@
                 <div class="layui-card-body">
                     <table class="layui-hide" id="userList" lay-filter="userList"></table>
                     <script type="text/html" id="number">
-                        <p><span>{{d.sum_price}}</span></p>
+                        <p><span>{{d.price*d.num_product}}</span></p>
                     </script>
                     <script type="text/html" id="bar">
                         <button type="button" class="layui-btn layui-btn-xs" lay-event="see"><i class="layui-icon layui-icon-list"></i>详情</button>

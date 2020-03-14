@@ -14,6 +14,7 @@
     <script src="{__PLUG_PATH}layui/layui.all.js"></script>
     <script>
         $eb = parent._mpApi;
+        console.log($eb);
         window.controlle="<?php echo strtolower(trim(preg_replace("/[A-Z]/", "_\\0", app('request')->controller()), "_"));?>";
         window.module="<?php echo app('http')->getName();?>";
     </script>
