@@ -12,7 +12,11 @@
 // [ 应用入口文件 ]
 namespace think;
 define('DS', DIRECTORY_SEPARATOR);
-
+$REQUEST_URI = explode('/', $_SERVER['REQUEST_URI']);
+if($REQUEST_URI[1]!='admin')
+{
+	echo 'File not found.';die;
+}
 //检测是否已安装CRMEB系统
 if(file_exists("./install/") && !file_exists("./install/install.lock")){
     if($_SERVER['PHP_SELF'] != '/index.php'){
