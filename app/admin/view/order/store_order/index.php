@@ -91,7 +91,7 @@
                 <div class="layui-card-body">
                     <div class="layui-btn-container" id="container-action">
                         <button class="layui-btn layui-btn-sm" data-type="del_order">批量删除订单</button>
-                      <!--   <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="write_order">订单核销</button> -->
+                        <button class="layui-btn layui-btn-sm layui-btn-warm" data-type="write_order">订单核销</button>
                     </div>
                     <table class="layui-hide" id="List" lay-filter="List"></table>
                     <!--订单-->
@@ -461,7 +461,7 @@
             }
         },
         write_order:function () {
-            // return $eb.createModalFrame('订单核销',layList.U({a:'write_order'}),{w:500,h:400});
+            return $eb.createModalFrame('订单核销',layList.U({a:'write_order'}),{w:500,h:400});
         },
     };
     $('#container-action').find('button').each(function () {
