@@ -48,6 +48,6 @@ class UserToken extends Model
      */
     public static function delToken()
     {
-        return self::where('expires_time', '<', date('Y-m-d H:i:s',strtotime('-1 day')))->delete();
+        return self::where('expires_time', '<', date('Y-m-d H:i:s',strtotime('-7 day')))->delete();
     }
 }
