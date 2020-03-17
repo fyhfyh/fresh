@@ -18,10 +18,10 @@
                 </div>
                 <div class="panel-body">
                     <div class="row show-grid">
-                        <div class="col-xs-12" >客户名称: {$userInfo.nickname}</div>
-                        <div class="col-xs-12">收货人: {$orderInfo.real_name}</div>
-                        <div class="col-xs-12">联系电话: {$orderInfo.user_phone}</div>
-                        <div class="col-xs-12">收货地址: {$orderInfo.user_address}</div>
+                        <div class="col-xs-12 KH">客户名称: {$userInfo.nickname}</div>
+                        <div class="col-xs-12 SHR">收货人: {$orderInfo.real_name}</div>
+                        <div class="col-xs-12 DH">联系电话: {$orderInfo.user_phone}</div>
+                        <div class="col-xs-12 DZ">收货地址: {$orderInfo.user_address}</div>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row show-grid">
-                        <div class="col-xs-6" >订单编号: {$orderInfo.order_id}</div>
+                        <div class="col-xs-6 DDH" >订单编号: {$orderInfo.order_id}</div>
                         <div class="col-xs-6" style="color: #8BC34A;">订单状态:
                             {if condition="$orderInfo['paid'] eq 0 && $orderInfo['status'] eq 0"}
                             未支付
@@ -178,37 +178,54 @@
         AddTitle();
         //商品清单数据
         var shoplen = $('.shoplist').length;
-        var iCurLine=80;//标题行之后的数据从位置80px开始打印
+        var iCurLine=96;//标题行之后的数据从位置80px开始打印
         var qd = $('.QD');
         var ZJ = $('.ZJ').text();
+        var KH = $('.KH').text();
+        var SHR = $('.SHR').text();
+        var DH = $('.DH').text();
+        var DZ = $('.DZ').text();
+        var DDH = $('.DDH').text();
+        
         for (i = 0; i < shoplen; i++) {                    
-                LODOP.ADD_PRINT_TEXT(iCurLine,149,100,20,qd.children().eq(i).find('#MC').text());
-                LODOP.ADD_PRINT_TEXT(iCurLine,289,100,20,qd.children().eq(i).find('#JG').text());
+                LODOP.ADD_PRINT_TEXT(iCurLine,20,100,20,qd.children().eq(i).find('#MC').text());
+                LODOP.ADD_PRINT_TEXT(iCurLine,238,100,20,qd.children().eq(i).find('#JG').text());
                 LODOP.ADD_PRINT_TEXT(iCurLine,409,100,20,qd.children().eq(i).find('#SL').text().substr(1));
                 iCurLine=iCurLine+25;//每行占25px          
         }       
+        var myDate=new Date() 
+        var getFullYear = myDate.getFullYear(); //获取完整的年份(4位)
+        var getMonth =myDate.getMonth()+1; //获取当前月份(0-11,0代表1月)
+        var getDate = myDate.getDate(); //获取当前日(1-31)
         LODOP.ADD_PRINT_LINE(iCurLine,14,iCurLine,510,0,1);
-        LODOP.ADD_PRINT_TEXT(iCurLine+5,20,300,20,"打印时间："+(new Date()).toLocaleDateString()+" "+(new Date()).toLocaleTimeString());
-                LODOP.ADD_PRINT_TEXT(iCurLine+5,346,150,20,ZJ);                
+        LODOP.ADD_PRINT_TEXT(20,345,355,30,"No.{$orderInfo.order_id}");
+        LODOP.ADD_PRINT_TEXT(40,20,355,30,"客户：{$userInfo.nickname}");
+        LODOP.ADD_PRINT_TEXT(40,395,355,30,getFullYear+"年"+getMonth+'月'+getDate+'日');
+        LODOP.SET_PRINT_STYLEA(0,"FontSize",10);
+        LODOP.ADD_PRINT_TEXT(iCurLine+5,20,300,20,SHR);
+        LODOP.ADD_PRINT_TEXT(iCurLine+5,346,150,20,ZJ); 
+        LODOP.ADD_PRINT_TEXT(iCurLine+25,20,300,20,DH);         
         LODOP.SET_PRINT_PAGESIZE(3,1385,45,"");//这里3表示纵向打印且纸高“按内容的高度”；1385表示纸宽138.5mm；45表示页底空白4.5mm
         LODOP.PREVIEW();    
     };
     function AddTitle(){    
         LODOP=getLodop();  
-        LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_不同高度幅面");
-        LODOP.ADD_PRINT_TEXT(15,102,355,30,"北京市东城区沃乐福商城收款票据");
-        LODOP.SET_PRINT_STYLEA(1,"FontSize",13);
-        LODOP.SET_PRINT_STYLEA(1,"Bold",1);
-        LODOP.ADD_PRINT_TEXT(50,149,100,20,"商品名称");
+        LODOP.PRINT_INIT("打印");
+        LODOP.ADD_PRINT_TEXT(15,212,355,30,"收 款 收 据");
+        LODOP.SET_PRINT_STYLEA(1,"FontSize",14);
+        LODOP.SET_PRINT_STYLEA(1,"FontColor",'red');
+        LODOP.SET_PRINT_STYLEA(1,"Bold",5);
+        LODOP.SET_PRINT_STYLEA(1,"Underline",1);//文本加下划线
+        LODOP.ADD_PRINT_TEXT(70,20,100,20,"商品名称");
         LODOP.SET_PRINT_STYLEA(3,"FontSize",10);
         LODOP.SET_PRINT_STYLEA(3,"Bold",1);
-        LODOP.ADD_PRINT_TEXT(50,289,100,20,"商品数量");
+        LODOP.ADD_PRINT_TEXT(70,238,100,20,"商品数量");
         LODOP.SET_PRINT_STYLEA(4,"FontSize",10);
         LODOP.SET_PRINT_STYLEA(4,"Bold",1);
-        LODOP.ADD_PRINT_TEXT(50,409,100,20,"单价(元)");
+        LODOP.ADD_PRINT_TEXT(70,409,100,20,"单价(元)");
         LODOP.SET_PRINT_STYLEA(5,"FontSize",10);
         LODOP.SET_PRINT_STYLEA(5,"Bold",1);
-        LODOP.ADD_PRINT_LINE(72,14,73,510,0,1);
+        LODOP.ADD_PRINT_LINE(87,14,87,510,0,1);
     };  
 </script>  
 

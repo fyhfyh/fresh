@@ -189,11 +189,13 @@
                     layList.basePost(that.U({a:'delete'}),{imageid:that.selectImagesIDS},function (res) {
                         layList.msg(res.msg);
                         that.getImageList();
+                        location.reload();
                     },function (res) {
                         layList.msg(res.msg);
+                         location.reload();
                     })
                 })
-             location.reload();
+            
             },
             //移动图片分类
             moveCate:function(){
