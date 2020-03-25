@@ -33,8 +33,8 @@ trait JwtAuthModelTrait
         ];
         $params['jti'] = compact('id', 'type');
         $token = JWT::encode($params, Env::get('app.app_key', 'default'));
-        print_r(compact('token', 'params'));die;
-        // return compact('token', 'params');
+        // print_r(compact('token', 'params'));die;
+        return compact('token', 'params');
     }
 
     /**
