@@ -81,6 +81,7 @@ class User extends AuthController
            $data['last_ip'] = request()->ip();
            $data['status'] = 1;
            $data['user_type'] = 'routine';
+           $data['avatar'] = 'http://msg.shouting.ltd/uploads/attach/2020/03/20200316/7ae88bd0a5021f643381aaf6aba8b13f.png';
            $res = Db::name('user')->insert($data);
            if($res){
                return Json::successful('新增成功');

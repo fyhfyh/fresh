@@ -71,6 +71,27 @@ class AuthController
     }
 
     /**
+     * 修改密码
+     * @param Request $request
+     */
+    public function edit_pwd(Request $request)
+    {
+        $user = User::where('uid', $request->param('uid'))->find();
+        if(!empty($user)){
+           return app('json')->fail('用户不存在！');
+        }
+        $password = $request->param('password');
+        $res = User::->where('uid',$request->param('uid'))->update(['password'=>$password]);
+        if($res){
+            return app('json')->fail('修改成功');
+        }else{
+            return app('json')->fail('修改失败');
+        }
+    }
+
+
+
+    /**
      * 验证码发送
      * @param Request $request
      * @return mixed
