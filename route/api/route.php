@@ -4,7 +4,8 @@ use think\facade\Route;
 //账号密码登录
 Route::post('login', 'AuthController/login')->name('login')
     ->middleware(\app\http\middleware\AllowOriginMiddleware::class);
-
+//账号密码登录
+Route::post('editpwd', 'AuthController/editpwd')->name('editpwd');
 //手机号登录
 Route::post('login/mobile', 'AuthController/mobile')->name('loginMobile')
     ->middleware(\app\http\middleware\AllowOriginMiddleware::class);
