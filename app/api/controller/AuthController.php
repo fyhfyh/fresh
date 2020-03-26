@@ -80,6 +80,7 @@ class AuthController
         if(empty($user)){
            return app('json')->fail('用户不存在！');
         }
+        $uid = $request->param('uid');
         $password = $request->param('password');
         if(strlen(trim($password)) < 6 || strlen(trim($password)) > 16)
             return app('json')->fail('密码必须是在6到16位之间');
