@@ -76,12 +76,13 @@ class AuthController
      */
     public function editpwd(Request $request)
     {
-        $user = User::where('uid', $request->param('uid'))->find();
+        $uid = $request->param('uid');
+        $user = User::where('uid',$uid)->find();
         print_r($user);die;
         if(empty($user)){
            return app('json')->fail('用户不存在！');
         }
-        $uid = $request->param('uid');
+
         $password = $request->param('password');
         if(strlen(trim($password)) < 6 || strlen(trim($password)) > 16)
             return app('json')->fail('密码必须是在6到16位之间');
