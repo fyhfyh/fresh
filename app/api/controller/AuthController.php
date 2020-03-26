@@ -77,6 +77,7 @@ class AuthController
     public function editpwd(Request $request)
     {
         $user = User::where('uid', $request->param('uid'))->find();
+        print_r($user);die;
         if(!empty($user)){
            return app('json')->fail('用户不存在！');
         }
