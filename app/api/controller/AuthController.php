@@ -78,7 +78,6 @@ class AuthController
     {
         $uid = $request->param('uid');
         $user = User::where('uid',$uid)->find();
-        print_r($user);die;
         if(empty($user)){
            return app('json')->fail('用户不存在！');
         }
