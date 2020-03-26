@@ -74,7 +74,7 @@ class AuthController
      * 修改密码
      * @param Request $request
      */
-    public function edit_pwd(Request $request)
+    public function editPwd(Request $request)
     {
         $user = User::where('uid', $request->param('uid'))->find();
         if(!empty($user)){
