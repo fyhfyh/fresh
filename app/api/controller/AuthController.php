@@ -81,7 +81,7 @@ class AuthController
            return app('json')->fail('用户不存在！');
         }
         $password = $request->param('password');
-        $res = User::->where('uid',$request->param('uid'))->update(['password'=>$password]);
+        $res = User::where('uid',$request->param('uid'))->update(['password'=>$password]);
         if($res){
             return app('json')->fail('修改成功');
         }else{
