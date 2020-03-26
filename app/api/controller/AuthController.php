@@ -84,7 +84,7 @@ class AuthController
         if(strlen(trim($password)) < 6 || strlen(trim($password)) > 16)
             return app('json')->fail('密码必须是在6到16位之间');
         if($password == '123456') return app('json')->fail('密码太过简单，请输入较为复杂的密码');
-        $resetStatus = User::reset($account, $password);
+        $resetStatus = User::where('uid', $uid)->update(['pwd' => md5($password)]);
         if($resetStatus) return app('json')->success('修改成功');
     }
 
