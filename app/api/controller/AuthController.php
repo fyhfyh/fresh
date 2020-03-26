@@ -81,12 +81,11 @@ class AuthController
            return app('json')->fail('用户不存在！');
         }
         $password = $request->param('password');
-        $res = User::where('uid',$request->param('uid'))->update(['password'=>$password]);
-        if($res){
-            return app('json')->fail('修改成功');
-        }else{
-            return app('json')->fail('修改失败');
-        }
+        if(strlen(trim($password)) < 6 || strlen(trim($password)) > 16)
+            return app('json')->fail('密码必须是在6到16位之间');
+        if($password == '123456') return app('json')->fail('密码太过简单，请输入较为复杂的密码');
+        $resetStatus = User::reset($account, $password);
+        if($resetStatus) return app('json')->success('修改成功');
     }
 
 
