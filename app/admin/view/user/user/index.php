@@ -222,6 +222,10 @@
                                 <a href="javascript:void(0);" lay-event="see">
                                     <i class="layui-icon layui-icon-edit"></i> 会员详情</a>
                             </li>
+                             <li>
+                                <a href="javascript:void(0);" lay-event="editpwd">
+                                    <i class="layui-icon layui-icon-edit"></i>修改密码</a>
+                             </li>
 <!--                            <li>-->
 <!--                                <a href="javascript:void(0);" lay-event="give_level">-->
 <!--                                    <i class="layui-icon layui-icon-star-fill" aria-hidden="true"></i> 赠送会员</a>-->
@@ -357,6 +361,9 @@
                 break;
             case 'open_image':
                 $eb.openImage(data.avatar);
+                break;
+            case 'editpwd':
+                $eb.createModalFrame('修改密码',layList.Url({a:'editpwd',p:{uid:data.uid}}),{h:350,w:500});
                 break;
         }
     });

@@ -132,6 +132,37 @@ class User extends AuthController
         return $this->fetch('public/form-builder');
     }
 
+    public function editpwd($uid)
+    {
+        if($this->request->isGet()) {
+            $field = [
+                Form::input('pwd', '新密码')->type('password')->placeholder('密码为必填项'),
+                Form::input('uid', '')->type('hidden')->value($uid),
+            ];
+
+            $form = Form::make_post_form('提交', $field, Url::buildUrl('editpwd'), 2);
+            $this->assign(compact('form'));
+            return $this->fetch('public/form-builder');
+        }
+        if($this->request->isAjax()){
+            $param = Util::postMore([
+                'pwd',
+                'uid'
+            ]);
+           if (!$param['uid']) return $this->failed('数据不存在');
+           $user = UserModel::get($param['uid']);
+           if (!$user) return Json::fail('数据不存在!');
+           if($param['pwd'] == '') return Json::fail('密码为必填项！');
+           $data['pwd'] = md5($param['pwd']);
+           $res = Db::name('user')->where('uid',$param['uid'])->update($data);
+           if($res){
+               return Json::successful('修改成功');
+           }else{
+               return Json::successful('修改失败');
+           }
+        }
+    }
+
     public function update_other($uid = 0)
     {
         $data = Util::postMore([
