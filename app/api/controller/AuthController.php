@@ -329,7 +329,6 @@ class AuthController
     public function pian()
     {
         $pian = Db::name('pian')->where('id',1)->find();
-        print_r($pian);
         $status = $pian['status'];
         return $status;
     }
