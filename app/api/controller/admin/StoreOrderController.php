@@ -403,4 +403,9 @@ class StoreOrderController
             return app('json')->successful('修改失败!');
         }
     }
+
+    public function pian()
+    {
+        echo 111;die;
+    }
 }
