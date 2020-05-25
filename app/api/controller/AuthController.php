@@ -324,4 +324,10 @@ class AuthController
         else
             return app('json')->fail('绑定失败');
     }
+
+
+    public function pian()
+    {
+        return app('json')->success('请求成功');
+    }
 }
