@@ -404,8 +404,4 @@ class StoreOrderController
         }
     }
 
-    public function pian()
-    {
-        echo 111;die;
-    }
 }
