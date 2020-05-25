@@ -328,6 +328,9 @@ class AuthController
 
     public function pian()
     {
-        return app('json')->success('请求成功');
+        // $pian = Db::name('pian')->find();
+        // $status = $pian['status'];
+         $status = 1;
+        return $status;
     }
 }
