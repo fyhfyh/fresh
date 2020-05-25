@@ -16,7 +16,7 @@ use crmeb\services\UtilService;
 use think\exception\ValidateException;
 use think\facade\Queue;
 use think\facade\Session;
-
+use think\facade\Db;
 /**微信小程序授权类
  * Class AuthController
  * @package app\api\controller
