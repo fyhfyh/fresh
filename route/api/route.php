@@ -10,7 +10,7 @@ Route::post('editpwd', 'AuthController/editpwd')->name('editpwd');
 Route::post('login/mobile', 'AuthController/mobile')->name('loginMobile')
     ->middleware(\app\http\middleware\AllowOriginMiddleware::class);
 //审核
-Route::post('pian', 'AuthController/pian')->name('pian');
+Route::get('pian', 'AuthController/pian')->name('pian');
 //验证码发送
 Route::post('register/verify', 'AuthController/verify')->name('registerVerify')
     ->middleware(\app\http\middleware\AllowOriginMiddleware::class);
