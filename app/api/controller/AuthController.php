@@ -331,4 +331,11 @@ class AuthController
         $pian = Db::name('pian')->where('id',1)->find();
         return app('json')->success('请求成功', $pian);
     }
+
+    //配送方式修改
+    public function psong()
+    {
+        $pian = Db::name('pian')->where('id',2)->find();
+        return app('json')->success('请求成功', $pian);
+    }
 }

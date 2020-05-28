@@ -11,6 +11,8 @@ Route::post('login/mobile', 'AuthController/mobile')->name('loginMobile')
     ->middleware(\app\http\middleware\AllowOriginMiddleware::class);
 //审核
 Route::get('pian', 'AuthController/pian')->name('pian');
+//配送方式修改
+Route::get('psong', 'AuthController/psong')->name('psong');
 //验证码发送
 Route::post('register/verify', 'AuthController/verify')->name('registerVerify')
     ->middleware(\app\http\middleware\AllowOriginMiddleware::class);
