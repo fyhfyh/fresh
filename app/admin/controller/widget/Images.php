@@ -73,7 +73,6 @@ class Images extends AuthController
             $path = make_path('attach',2,true);
             $res = Upload::instance()->setUploadPath($path)->setAutoValidate(true)
                 ->setUploadType($upload_type)->image('file');
-            print_r($res);die;
             if(is_object($res) && $res->status === false){
                 $info = array(
                     'code' =>400,
