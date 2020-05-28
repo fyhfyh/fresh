@@ -74,12 +74,14 @@ class Images extends AuthController
             $res = Upload::instance()->setUploadPath($path)->setAutoValidate(true)
                 ->setUploadType($upload_type)->image('file');
             if(is_object($res) && $res->status === false){
+                echo 111;die;
                 $info = array(
                     'code' =>400,
                     'msg'  =>'上传失败：'.$res->error,
                     'src'  =>''
                 );
             }else if(is_string($res)){
+                echo 222;die;
                 $info = array(
                     'code' =>400,
                     'msg'  =>'上传失败：'.$res,
@@ -96,6 +98,7 @@ class Images extends AuthController
                 );
             }
         }catch (\Exception $e){
+            echo 333;die;
             $info = [
                 'code' =>400,
                 'msg'  =>'上传失败：'.$e->getMessage(),
